@@ -1,24 +1,214 @@
 ================================
-Search Engine Optimisation (SEO)
+Search Engine Optimization (SEO)
 ================================
 
-Search Engine Optimization (SEO) is a set of good practices to optimize
-your website so that you get a better ranking in search engines like
-Google. In short, a good SEO allows you to get more visitors.
+Search Engine Optimization, often abbreviated as SEO, is a digital marketing strategy aimed at
+improving a website's visibility and ranking in search engine results like Google. It involves
+optimizing various elements on a website, including your content, social sharing, URLs, images, and
+page speed.
 
-Some examples of SEO rules: your web pages should load fast, your page
-should have one and only one title ``<h1>``, meta tags
-(alt-tag, title-tag) should be
-consistent with the content, your website should have a
-``/sitemap.xml`` file, etc.
+.. note::
+   Odoo provides several modules to help you build your website content such as :doc:`eCommerce <../../ecommerce>`,
+   Blog, :doc:`eLearning <../../elearning>`, and :doc:`Forum <../../forum>`.
 
-To guarantee Odoo Website and Odoo
-eCommerce users have a great SEO, Odoo abstracts all the technical
-complexities of SEO and handles everything for you, in the best possible
-way. This will be explained here below.
+.. Tip::
+   Use `woorank <https://www.woorank.com>`_ free services to compare how your website ranks in terms
+   of SEO.
 
-But first, let see how you can easily boost your ranking
-by finetuning the content and the meta tags of your website.
+Content optimization
+====================
+
+In Odoo, you can **Optimize SEO** by going to :menuselection:`Website --> Site --> This page:
+Optimize SEO`.
+
+.. image:: seo/bloomsandpetals.png
+   :alt: Optimize SEO
+
+Meta tags
+---------
+
+Meta tags are HTML elements that provide information about a webpage to search engines and website
+visitors. They play a crucial role in SEO by helping search engines understand the content and
+context of a webpage.
+
+:guilabel:`Title` tags specify the title of a webpage and is displayed as the clickable link in
+search engine results. It should be concise, descriptive, and relevant to the page's content. You
+can update the title tag of your webpage or keep it empty to use the default value.
+
+:guilabel:`Description` tags provide a brief summary of the webpage's content, often displayed in
+search engine results below the title. It is essential for encouraging click-throughs. You can
+update the description tag of your webpage or keep it empty to use the default value based on the
+page’s content.
+
+.. note::
+   The :guilabel:`Preview` card gives an overview of how the title and description tags you entered
+   appear in search results. It also includes the URL of your page.
+
+Keywords
+--------
+
+Odoo provides a ``<keyword>`` finder to help you write quality content and boost your traffic. Those
+keywords are the searches you want to head toward your website. You can see for each keyword you
+enter how it is used in the content under :guilabel:`H1`, :guilabel:`H2`, :guilabel:`T` for page
+title, :guilabel:`D` for page description, and :guilabel:`C` for page content) and suggested
+keywords you can add to your page to boost your SEO. The more keywords are used, the better.
+
+Image for social share
+----------------------
+
+Select an image for social share. By default, your logo image is selected, but you can upload any
+other image you want by clicking on the upward arrow.
+
+.. Note::
+   The :guilabel:`Social Preview` card gives an overview of how your information would appear when
+   shared.
+
+Social networks
+---------------
+
+Social media and SEO can complement each other by driving traffic and enhancing online visibility.
+Sharing content can improve SEO by increasing inbound links and engagement. Odoo embeds several
+tools to share content through social media.
+
+Social share
+~~~~~~~~~~~~
+
+You can add your media icons on any page of your website to invite users to share it on their social
+media. To do so, click :guilabel:`Edit`, go to the :guilabel:`Blocks` tab, :guilabel:`Inner` content
+section, and drop the building block :guilabel:`Share`.
+
+.. Tip::
+   You can refer to your social media in your website footer. From your website, click
+   :guilabel:`Edit`, go to :guilabel:`Customize` tab, and scroll to the :guilabel:`Social Media`
+   section. Add the link to your social networks and toggle the switch.
+
+   .. image:: seo/connectwithus.png
+      :alt: Connect with us through social media
+
+Facebook page
+~~~~~~~~~~~~~
+
+From your website, click :guilabel:`Edit`, go to the :guilabel:`Blocks` tab, go to the
+:guilabel:`Dynamic Content` section, and drop the :guilabel:`Facebook` building block to display a
+widget of your Facebook business page and encourage visitors to follow it. You can display the
+timeline, the next events, and the messages.
+
+Multi-language URLs
+===================
+
+Your website is displayed in the language that matches the visitor’s browser’s language unless that
+particular language has not been installed. In this case, the website is displayed in the default
+language. The visitor can still select another language in the language menu. When a website is run
+in multiple languages, the same content is available in different URLs, depending on the language
+used:
+
+- https://www.mywebsite.com/shop/product/my-product-1 (main language, English here)
+
+- https://www.mywebsite.com/fr_FR/shop/product/mon-produit-1 (French version)
+
+In this example, fr_FR is the language of the page.
+
+.. seealso::
+   Translation
+
+.. tip::
+   To ensure visitors see the default language, use a link with the default language code, like
+   "yourwebsite.com/en_US/shop." This way, visitors consistently view the English version,
+   regardless of their browser settings.
+
+Page speed
+==========
+
+The time to load a page is an important criterion for search engines. Odoo uses different ways to
+speed up your page loading time.
+
+.. tip::
+   Compare how your website ranks using Google Page Speed or Pingdom Website Speed Test.
+
+Images
+------
+
+Odoo automatically compresses images you download to reduce their sizes (lossless compression for
+.PNG and .GIF and lossy compression for .JPG). All images used in Odoo official themes have been
+compressed by default. If you are using a third-party theme, it may provide images that are not
+compressed efficiently. To modify an image from your website, select it, go to the website builder,
+and to the Customize tab, Image section. Filling the Alt tag is important from an SEO perspective.
+It provides information regarding your image, and the the description you enter appears when the
+image cannot be displayed.
+
+.. image:: seo/image.png
+   :alt:
+
+To replace a media, click Replace. A pop-up appears.
+
+- Images tab: search for an Unsplash image, Add url or upload an image;
+- Documents tab: Search a document, add document, or upload a document;
+- Icons tab: Search for a pictogram. You can use as many icons as you want; they do not result in
+  extra requests to load the page.
+
+Responsive design
+-----------------
+
+All Odoo themes rely on Bootstrap to render efficiently according to the device: desktop, tablet, or
+mobile, which positively impacts ranking in search engines.
+
+.. image:: seo/design.png
+  :align: center
+
+Search engines files
+====================
+
+Sitemap
+-------
+
+The sitemap points out pages to index to search engine robots. Odoo generates a /sitemap.xml file
+automatically for you. For performance reasons, this file is cached and updated every 12 hours. By
+default, URLs are in a single /sitemap.xml file, but if you have a lot of pages, Odoo automatically
+creates a Sitemap Index file, respecting the sitemaps.org protocol grouping sitemap URL’s in 45000
+chunks per file. Every sitemap entry has three attributes that are computed automatically:
+
+- <loc> : the URL of a page
+- <lastmod> : last modification date of the resource, computed automatically based on related
+  object. For a page related to a product, this could be the last modification date of the product
+  or the page.
+- <priority> : modules may implement their own priority algorithm based on their content (example: a
+  forum might assign a priority based on the number of votes on a specific post). The priority of a
+  static page is defined by it’s priority field, which is normalized (16 is the default).
+
+Structured data markup
+----------------------
+
+Structured data markup is used to generate rich snippets in search engine results. It is a way for
+website owners to send structured data to search engine robots; helping them understand your content
+and create well-presented search results.
+
+Google supports a number of rich snippets for content types, including: Reviews, People, Products,
+Businesses, Events and Organizations.
+
+Odoo implements micro data as defined in the schema.org specification for events, eCommerce
+products, forum posts and contact addresses. This allows your product pages to be displayed in
+Google using extra information like the price and rating of a product:
+
+.. image::
+
+robots.txt
+----------
+
+When indexing your website, search engines take a first look at the general indexing rules of the
+/robots.txt file (allowed robots, sitemap path, etc.). Odoo automatically creates it. Its content
+is:
+
+User-agent: * Sitemap: https://www.odoo.com/sitemap.xml
+
+It means that all robots are allowed to index your website and there is no other indexing rule than
+specified in the sitemap to be found at following address. You can customize the file robots in
+developer mode from Settings –> Technical –> User Interface: Views (exclude robots, exclude some
+pages, redirect to a custom Sitemap). Make the Model Data of the view Non Updatable to not reset the
+file after system upgrades.
+
+
+
+---------------------------------------------------------------------------------------------------
 
 Meta Tags
 =========
@@ -52,31 +242,6 @@ searches in Google. The more keywords are used the better.
   tool for every language of a single page and set specific title,
   description and search tags.
 
-Content is King
-===============
-
-When it comes to SEO, content is usually king. Odoo provides several
-modules to help you build your website content:
-
-- **Odoo Blogs**: write great contents.
-
-- **Odoo Slides**: publish all your Powerpoint or PDF presentations.
-  Their content is automatically indexed on the web page. Example:
-  `odoo.com/slides/public-channel-1 <https://www.odoo.com/slides/public-channel-1>`_
-
-- **Odoo Forum**: let your community create contents for you. Example:
-  `odoo.com/forum/1 <https://odoo.com/forum/1>`_
-  (accounts for 30% of Odoo.com landing pages)
-
-- **Odoo Mailing List Archive**: publish mailing list archives on your
-  website. Example:
-  `odoo.com/groups/community-59 <https://www.odoo.com/groups/community-59>`_
-  (1000 pages created per month)
-
-.. note::
-  The 404 page is a regular page, that you can edit like any other
-  page in Odoo. That way, you can build a great 404 page to redirect to
-  the top content of your website when visitors get lost in invalid URLs.
 
 Use Social Networks
 ===================
@@ -133,124 +298,6 @@ You can compare how your website rank, in terms of SEO, against Odoo
 using WooRank free services:
 `woorank.com <https://www.woorank.com>`_
 
-URLs Handling
-=============
-
-This section sheds some light on how Odoo makes URLs SEO-friendly.
-
-URLs Structure
---------------
-
-A typical Odoo URL will look like this:
-
-- https://www.mysite.com/fr\_FR/shop/product/my-great-product-31
-
-With the following components:
-
--  **https://** = Protocol
-
--  **www.mysite.com** = your domain name
-
--  **/fr\_FR** = page language. This part of the URL is
-   removed if the visitor browses the main language of the website
-   Thus, the main version of this page is:
-   https://www.mysite.com/shop/product/my-great-product-31
-
--  **/shop/product** = every module defines its own namespace (/shop is
-   for the catalog of the eCommerce module, /shop/product is for a
-   product page).
-
--  **my-great-product** = by default, this is the slugified title of the
-   product this page refers to. But you can customize it for SEO
-   purposes. A product named "Pain carré" will be slugified to
-   "pain-carre". Depending on the namespace, this could be different
-   objects (blog post, page title, forum post, forum comment,
-   product category, etc.).
-
--  **-31** = the unique ID of the product
-
-Note that any dynamic component of an URL can be reduced to its ID. As
-an example, the following URLs all do a 301 redirect to the above URL:
-
--  https://www.mysite.com/fr\_FR/shop/product/31 (short version)
-
--  http://mysite.com/fr\_FR/shop/product/31 (even shorter version)
-
--  http://mysite.com/fr\_FR/shop/product/other-product-name-31 (old
-   product name)
-
-Some URLs have several dynamic parts, like this one (a blog category and
-a post):
-
--  https://www.odoo.com/blog/company-news-5/post/the-odoo-story-56
-
-In the above example:
-
--  *Company News* is the title of the blog
-
--  *The Odoo Story* is the title of a specific blog post
-
-When an Odoo page has a pager, the page number is set directly in the
-URL (does not have a GET argument). This allows every page to be indexed
-by search engines. Example:
-
--  https://www.odoo.com/blog/page/3
-
-Changes in URLs & Titles
-------------------------
-
-When the URL of a page changes (e.g. a more SEO friendly version of your
-product name), you don't have to worry about updating all links:
-
--  Odoo will automatically update all its links to the new URL.
-
-- If external websites still points to the old URL, a 301 redirect will
-  be done to route visitors to the new address of the page.
-
-As an example, this URL:
-
-- http://mysite.com/shop/product/old-product-name-31
-
-Will automatically redirect to:
-
-- http://mysite.com/shop/product/new-and-better-product-name-31
-
-In short, just change the title of a blog post or the name of a product,
-and the changes will apply automatically everywhere in your website. The
-old link still functions when used by external websites, via a 301 redirect,
-maintaining the SEO link juice.
-
-HTTPS
------
-
-Search engines boost ranking of secure HTTPS/SSL websites.
-So, by default all Odoo Online instances are fully
-based on HTTPS. If the visitor accesses your website through a non HTTPS
-url, it gets a 301 redirect to its HTTPS equivalent.
-
-Links: Nofollow Strategy
-------------------------
-
-The more a page is linked from external and quality websites,
-the better it is for your SEO.
-
-Here are Odoo strategies to manage links:
-
-- Every link you add to your website is
-  "dofollow", which means that this link will contribute to the SEO
-  Juice for the linked page.
-
-- Every link posted by a contributor (forum post, blog comment, etc.)
-  that links to your own website is "dofollow" too.
-
-- But every link posted by a contributor that links to an external
-  website is "nofollow". In that way, you do not run the risk of
-  people posting links on your website to third-party websites
-  which have a bad reputation.
-
-- Note that, when using the forum, contributors having a lot of Karma
-  can be trusted. In such case, their links will not have any
-  ``rel="nofollow"`` attribute.
 
 Multi-Language Support
 ======================
@@ -374,189 +421,6 @@ page, they will not result in extra requests to load the page.
 .. image:: seo/seo10.png
   :align: center
 
-Static Resources: CSS
----------------------
-
-All CSS files are pre-processed, concatenated, minified, compressed and
-cached (server-side and browser-side). The result:
-
-- only one CSS file request is needed to load a page
-
-- this CSS file is shared and cached amongst pages, so that when the
-  visitor clicks on another page, the browser doesn't have to even
-  load a single CSS resource.
-
-- this CSS file is optimized to be small
-
-**Pre-processed:** The CSS framework used by Odoo is Bootstrap.
-Although a theme might use another framework, most of `Odoo
-themes <https://www.odoo.com/apps/themes>`__ extend and customize
-Bootstrap directly. Since Odoo supports Less and Sass, you can modify
-CSS rules instead of overwriting them through extra CSS lines,
-resulting in a smaller file.
-
-**Concatenated:** every module or library you might use in Odoo has its
-own set of CSS, Less or Sass files (eCommerce, blogs, themes, etc.). Having
-several CSS files is great for the modularity, but not good for the
-performance because most browsers can only perform 6 requests in
-parallel resulting in lots of files loaded in series. The
-latency time to transfer a file is usually much longer than the actual
-data transfer time, for small files like .JS and .CSS. Thus, the time to
-load CSS resources depends more on the number of requests to be done
-than the actual file size.
-
-To address this issue, all CSS / Less / Sass files are concatenated into
-a single .CSS file to send to the browser. So a visitor has **only one
-.CSS file to load** per page, which is particularly efficient. As the
-CSS is shared amongst all pages, when the visitor clicks on another
-page, the browser does not even have to load a new CSS file!
-
-================================= =============================================
-  **Both files in the <head>**     **What the visitor gets (only one file)**
-================================= =============================================
- /\* From bootstrap.css \*/       .text-muted {
- .text-muted {                    color: #666;
- color: #777;                     background: yellow
- background: yellow;              }
- }
-
- /\* From my-theme.css \*/
- .text-muted {
- color: #666;
- }
-================================= =============================================
-
-The CSS sent by Odoo includes all CSS / Less / Sass of all pages /
-modules. By doing this, additional page views from the same visitor will
-not have to load CSS files at all. But some modules might include huge
-CSS/Javascript resources that you do not want to prefetch at the first
-page because they are too big. In this case, Odoo splits this resource
-into a second bundle that is loaded only when the page using it is
-requested. An example of this is the backend that is only loaded when
-the visitor logs in and accesses the backend (/web).
-
-.. note::
-  If the CSS file is very big, Odoo will split it into two smaller
-  files to avoid the 4095 selectors limit per sheet of Internet Explorer.
-  But most themes fit below this limit.
-
-**Minified:** After being pre-processed and concatenated, the resulting
-CSS is minified to reduce its size.
-
-============================ ==============================
-  **Before minification**     **After minification**
-============================ ==============================
-  /\* some comments \*/       .text-muted {color: #666}
-  .text-muted {
-  color: #666;
-  }
-============================ ==============================
-
-The final result is then compressed, before being delivered to the
-browser.
-
-Then, a cached version is stored server-side (so we do not have
-to pre-process, concatenate, minify at every request) and browser-side
-(so the same visitor will load the CSS only once for all pages they
-visit).
-
-Static Resources: Javascript
-----------------------------
-
-As with CSS resources, Javascript resources are also concatenated,
-minified, compressed and cached (server-side and browser-side).
-
-Odoo creates three Javascript bundles:
-
-- One for all pages of the website (including code for parallax
-  effects, form validation, etc.)
-
-- One for common Javascript code shared among frontend and backend
-  (Bootstrap)
-
-- One for backend specific Javascript code (Odoo Web Client interface
-  for your employees using Odoo)
-
-Most visitors of your website will only need the first two bundles,
-resulting in a maximum of two Javascript files to load to render one
-page. As these files are shared across all pages, further clicks by the
-same visitor will not load any other Javascript resource.
-
-.. note::
-   If you work on :ref:`developer mode <developer-mode>`, the CSS and Javascript are neither
-   concatenated, nor minified. Thus, it's much slower. But it allows you to easily debug with the
-   Chrome debugger as CSS and Javascript resources are not transformed from their original versions.
-
-CDN
----
-
-If you activate the CDN feature in Odoo, static resources (Javascript,
-CSS, images) are loaded from a Content Delivery Network. Using a Content
-Delivery Network has three advantages:
-
-- Load resources from a nearby server (most CDN have servers in main
-  countries around the globe)
-
-- Cache resources efficiently (no computation resources usage on your
-  own server)
-
-- Split the resource loading on different services allowing to load
-  more resources in parallel (since the Chrome limit of 6 parallel
-  requests is by domain)
-
-You can configure your CDN options from the **Website Admin** app, using
-the Configuration menu. Here is an example of configuration you can use:
-
-.. image:: seo/seo11.png
-  :align: center
-
-HTML Pages
-----------
-
-The HTML pages can be compressed, but this is usually handled by your web
-server (NGINX or Apache).
-
-The Odoo Website builder has been optimized to guarantee clean and short
-HTML code. Building blocks have been developed to produce clean HTML
-code, usually using Bootstrap and the HTML editor.
-
-As an example, if you use the color picker to change the color of a
-paragraph to the primary color of your website, Odoo will produce the
-following code:
-
-``<p class="text-primary">My Text</p>``
-
-Whereas most HTML editors (such as CKEditor) will produce the following
-code:
-
-``<p style="color: #AB0201">My Text</p>``
-
-Responsive Design
------------------
-
-Websites that are not mobile-friendly are negatively
-impacted in search engine rankings. All Odoo themes rely on Bootstrap to
-render efficiently according to the device: desktop, tablet or mobile.
-
-.. image:: seo/seo12.png
-  :align: center
-
-As all Odoo modules share the same technology, absolutely all pages in
-your website are mobile friendly.
-
-Browser Caching
----------------
-
-Javascript, images and CSS resources have an URL that changes
-dynamically when their content change. As an example, all CSS files are
-loaded through this URL:
-`localhost:8069/web/content/457-0da1d9d/web.assets\_common.0.css <http://localhost:8069/web/content/457-0da1d9d/web.assets_common.0.css>`__.
-The ``457-0da1d9d`` part of this URL will change if you modify the CSS of
-your website.
-
-This allows Odoo to set a very long cache delay (XXX) on these
-resources: XXX secs, while being updated instantly if you update the
-resource.
 
 Scalability
 -----------
