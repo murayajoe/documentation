@@ -1,6 +1,16 @@
+:show-content:
+
 =============================
 Upgrade a customized database
 =============================
+
+
+.. toctree::
+  :titlesonly:
+  :glob:
+
+  upgrade/*
+
 
 Upgrading to a new version of Odoo can be challenging, especially if the database you work on
 contains custom modules. This page intent is to explain the technical process of upgrading a
@@ -104,6 +114,8 @@ This means, starting by ensuring there are no tracebacks or warnings during thei
 For this, install the custom modules, one by one, in an empty database of the new Odoo version and
 fix the tracebacks and warnings that arise from that.
 
+.. todo:: Add examples or references to PR such as attrs change
+
 This process will help detect issues during the installation of the modules. For example:
 
 - Invalid module dependencies.
@@ -190,8 +202,8 @@ To make sure the custom code is working flawlessly in the new version, follow th
 Migrate the data
 ----------------
 
-During the upgrade of the custom modules, you might have to use migration scripts to reflect changes
-from the source code to their corresponding data.
+During the upgrade of the custom modules, you might have to use :doc:`upgrade/migration_scripts` to
+reflect changes from the source code to their corresponding data.
 
 - Any technical data that was renamed during the upgrade of the custom code (models, fields,
   external identifiers) should be renamed using migration scripts to avoid data loss during the
@@ -200,6 +212,9 @@ from the source code to their corresponding data.
   database during the standard upgrade process might need to be recovered from the old model table
   if it is still present.
 
+.. todo:: Add example: rename_field, rename_model, rename_module, rename_xmlid
+.. todo:: Add example: sale.subscription and/or account.invoice
+
 Migration scripts can also be used to:
 
 - Ease the processing time of an upgrade. For example, to store the value of computed stored fields
@@ -207,6 +222,9 @@ Migration scripts can also be used to:
 - Recompute fields in case the computation of their value has changed.
 - Uninstall unwanted custom modules.
 - Correct faulty data or wrong configurations.
+
+.. todo:: Add example: recompute_fields
+.. todo:: Add example: remove_module
 
 .. _upgrade_custom/upgraded_database/test_custom:
 
@@ -227,6 +245,8 @@ Things to pay attention to:
   ``noupdate`` flag are not updated when upgrading the module in the new database. For the custom
   data that needs to be updated due to changes in the new version, we recommend to use migration
   scripts to do so.
+
+.. todo:: add example update_record_from_xml
 
 
 .. _upgrade_custom/testing_rehearsal:
