@@ -51,4 +51,5 @@ and select a product to open the product form. In the :guilabel:`Sales` tab, ena
    :titlesonly:
 
    configuration/https
+   configuration/combos
    configuration/epos_ssc
