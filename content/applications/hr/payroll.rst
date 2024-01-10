@@ -5,29 +5,39 @@
 Payroll
 =======
 
-Odoo *Payroll* is used to process work entries and create payslips for employees, including both
-regular pay and commission. Payroll works in conjunction with other Odoo apps, such as *Employees*,
-*Timesheets*, *Time Off*, and *Attendances*.
+Odoo *Payroll* is used to process work entries and create payslips for employees. Payroll works in
+conjunction with other Odoo apps, such as *Employees*, *Time Off*, *Attendances*, and *Planning*.
 
-The *Payroll* app helps ensure there are no issues or conflicts when validating work entries,
-handles country-specific localizations to ensure that payslips follow local rules and taxes, and
-allows for salary assignments. Payroll configuration is critical to ensure accurate and timely
-processing of payslips.
+The Payroll app helps ensure there are no issues or conflicts when validating work entries, handles
+country-specific localizations to ensure that payslips follow local rules and taxes, and allows for
+salary assignments. Payroll configuration is critical to ensure accurate and timely processing of
+payslips.
 
 Settings
 ========
 
-To access the *Settings*, go to :menuselection:`Payroll --> Configuration --> Settings`. Whether or
-not payslips are posted in accounting, and whether SEPA payments are created, is selected here.
+To access the *Settings*, go to :menuselection:`Payroll --> Configuration --> Settings`. The various
+settings for accounting, localizations, time off, alerts, and payslip settings are specified here.
 
-The :guilabel:`Settings` screen is where localization settings are configured. *Localizations* are
-country-specific settings pre-configured in Odoo at the creation of the database, and account for
-all taxes, fees, and allowances for that particular country. The :guilabel:`Localization` section of
-the :guilabel:`Settings` includes a detailed view of all benefits provided to employees.
+Accounting
+----------
 
-.. image:: payroll/payroll-settings.png
-   :align: center
-   :alt: Settings available for Payroll.
+The accounting section of the configuration menu relates to three options:
+
+- :guilabel:`Payroll Entries`: enable this option to post payroll slips in accounting.
+- :guilabel:`Payroll SEPA`: enable this option to create SEPA payments.
+- :guilabel:`Batch Account Move Lines`: enable this option to have a single account move line
+  created from all the accounting entries from the same period. This disables the generation of
+  single payments.
+
+Localizations
+-------------
+
+*Localizations* are country-specific settings pre-configured in Odoo at the creation of the
+database, and account for all taxes, fees, and allowances for that particular country. The
+:guilabel:`Localization` section of the :guilabel:`Settings` may include specific settings that need
+to be set for the specific locality, and a detailed view of all benefits provided to employees.
+Depending on the localization setting set for the database, what is shown in this section varies.
 
 Any country-specific localizations are set up in the :guilabel:`Localization` section of the
 :guilabel:`Settings` screen. All localization items are pre-populated when the country is specified
@@ -43,10 +53,149 @@ specifically required.
 
    Each individual company can have a different localization setting configured for that specific
    company, since company locations can vary and be located anywhere in the world, where rules and
-   laws differ. For more information on companies refer to :doc:`this documentation
-   <../general/users/companies>` on setting up companies.
+   laws differ. For more information on companies refer to the :doc:`Companies
+   <../general/users/companies>` documentation on setting up companies.
+
+Time off
+--------
+
+- :guilabel:`Deferred Time Off`: if time off is taken after payslips are validated, the time off
+  needs to be applied ot the following pay period. Select the person responsible for validating
+  these specific time off situations using the drop-down menu in the :guilabel:`Responsible` field.
+
+.. example::
+   An employee is paid on the 15th of the month and the last day of the month. Payslips are
+   typically processed a day before. If an employee's payslip is approved and processed on the 30th,
+   but takes an unexpected sick day on the 31st, the time off needs to be logged. Since the employee
+   is already paid for a regular work day on the 31st, in order to keep the time off balances
+   correct, the sick day is moved/applied to the 1st of the next month (the next pay period).
+
+Payroll
+-------
+
+- :guilabel:`Contract Expiration Notice Period`: enter the number of :guilabel:`Days` before a
+  contract expires that the responsible person is notified.
+- :guilabel:`Work Permit Expiration Notice Period`: enter the number of :guilabel:`Days` before a
+  work permit expires that the responsible person is notified.
+- :guilabel:`Payslip PDF Display`: enable this option to have payslips display a PDF file on the
+  payslip form.
 
 .. _payroll/work-entries-config:
+
+Contracts
+=========
+
+In order for an employee to be paid, they must have an active contract for a specific type of
+employment. Creating and viewing contract templates, and creating and viewing employment types is
+possible form this section of the configuration menu.
+
+Templates
+---------
+
+Contract templates are used with the *Recruitment* application when sending an offer to a candidate.
+The contract template forms the basis of an offer, and can be modified for specific candidates or
+employees when necessary. If a contract template is create dor modified in the *Payroll*
+application, the changes are also reflected in the *Rectruitment* application.
+
+To view all the current contract templates in the database, navigate to :menuselection:`Payroll
+application --> Configuration --> Contracts: Templates`. All current contract templates appear in a
+list view. To view the details of a contract template, click anywhere on the line to open the
+contract form. The contract template can be modified from this form. Make ay desired changes to the
+contract.
+
+To create a new contract template, click the :guilabel:`New` button. Enter the following information
+on the form:
+
+- :guilabel:`Contract Reference`: enter a description for the template. This should be clear and
+  easily understood as this name will appear in the *Recruitment* application as well.
+- :guilabel:`Working Schedule`: select the desired working schedule the contract applies to form the
+  drop-down menu. If a new working schedule is needed, create a :ref:`new working schedule
+  <payroll/new-working-schedule>`.
+- :guilabel:`Work Entry Source`: Select how the work entries are generated. Choices are either:
+
+  - :guilabel:`Working Schedule`: work entries are generated based on the selected working schedule.
+  - :guilabel:`Attendances`: work entries are generated based on the employee's attendance as they
+    are logged in the *Attendances* application. Refer to the :ref:`Atttendances
+    <attendances/check-in>` document for information on checking in and out.
+  - :guilabel:`Planning`: work entries are generated based on the employee's panning in the
+    *Planning* application.
+
+- :guilabel:`Salary Structure Type`: select the :ref:`salary structure type
+  <payroll/structure-types>` from the drop-down menu.
+- :guilabel:`Department`: select the department the contract template applies to from the drop-down
+  menu. If blank, the template applies to all departments.
+- :guilabel:`Job Position`: select the :ref:`job position <payroll/job-positions>` the contract
+  template applies to from the drop-down menu. If blank, the template applies to all job positions.
+- :guilabel:`Wage on Payroll`: enter the monthly wage in the field.
+- :guilabel:`Contract Type`: select the type of contract from the drop-down menu. This list is the
+  same as the :ref:`Employment Types <payroll/employment-types>`.
+- :guilabel:`HR Responsible`: select the employee who is responsible for validating contracts using
+  this template from the drop-down menu.
+- :guilabel:`New Contract Document Template`: select a default document that a new employee has to
+  sign in order to accept an offer.
+- :guilabel:`Contract Update Document Template`: select a default document that a current employee
+  has to sign in order to update their contract.
+
+.. image:: payroll/contract-template.png
+   :align: center
+   :alt: A new contract template form, with the fields filled in.
+
+Salary information tab
+~~~~~~~~~~~~~~~~~~~~~~
+
+- :guilabel:`Wage Type`: select either :guilabel:`Fixed Wage` or :guilabel:`Hourly` from the
+  drop-down menu.
+- :guilabel:`Schedule Pay`: using the drop-down menu, select how often the employee is paid. Options
+  include :guilabel:`Annually`, :guilabel:`Semi-annually`, :guilabel:`Quarterly`,
+  :guilabel:`Bi-monthly`, :guilabel:`Monthly`, :guilabel:`Semi-monthly`, :guilabel:`Bi-weekly`,
+  :guilabel:`Weekly`, or :guilabel:`Daily`.
+- :guilabel:`Wage`: enter the gross wage. The time period presented is based on what is selected for
+  the :guilabel:`Scheduled Pay` field. It is recommended to populate the :guilabel:`Yearly Cost
+  (Real)` field first, since that entry updates this field automatically.
+- :guilabel:`Yearly Cost (Real)`: enter the total yearly cost the employee costs the employer. When
+  this value is entered, the :guilabel:`Monthly Cost (Real)` is automatically updated.
+- :guilabel:`Monthly Cost (Real)`: this field is not able to be edited. The value is automatically
+  populated after the :guilabel:`Yearly Cost (Real)` is entered.
+
+.. important::
+    The :guilabel:`Schedule Pay`, :guilabel:`Wage`, and :guilabel:`Yearly Cost (Real)`
+    fields are all linked. If any of these fields is updated, the other two fields automatically
+    update to reflect what was changed. It is best practice to check these three fields if any
+    modifications have been made, to ensure they are accurate.
+
+.. image:: payroll/salary-info.png
+   :align: center
+   :alt: The salary information tab, with the fields filled in.
+
+Pre-tax benefits and post-tax deductions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Depending on the localization settings set for the company, the entries presented in this section
+will either vary, or may not appear at all. For example, some entires may pertain to retirement
+accounts, health insurance benefits, and commuter benefits. Enter any information requested in this
+section.
+
+.. _payroll/employment-types:
+
+Employment types
+----------------
+
+To view all the pre-configured employment types, navigate to :menuselection:`Payroll application -->
+Configuration --> Contracts: Employment Types`. The employment types are presented in a list view.
+The default employment types are :guilabel:`Permanent`, :guilabel:`Temporary`, :guilabel:`Seasonal`,
+:guilabel:`Interim`, :guilabel:`Full-Time`, :guilabel:`Part-Time`, and :guilabel:`Permanent`.
+
+To make a new employment type, click the :guilabel:`New` button and a blank line appears at the
+bottom of the form. Enter the nae of the employment type in the field. If the employment type is
+country-specific, select the country using the drop-down menu. If a country is selected, then the
+employment type is only applicable for that specific country.
+
+To rearrange the order of the employment types, click on the six small gray boxes to the left of the
+employment tye name, and drag the line to the desired position.
+
+.. image:: payroll/employment-types.png
+   :align: center
+   :alt: The employment types in the database by default, in a list view.
 
 Work entries
 ============
@@ -167,7 +316,7 @@ To view the currently configured working schedules, go to :menuselection:`Payrol
 contracts and work entries are found in this list.
 
 Working schedules are company-specific. Each company must identify each type of working schedule
-they use.
+they use. If the database is created for only one company, the company column is not available.
 
 .. Example::
    An Odoo database containing multiple companies that use a standard 40-hour work week needs to
@@ -179,6 +328,8 @@ they use.
 .. image:: payroll/working-schedules.png
    :align: center
    :alt: All working schedules available to use currently set up in the database for the company.
+
+.. _payroll/new-working-schedule:
 
 New working schedule
 ~~~~~~~~~~~~~~~~~~~~
@@ -239,25 +390,25 @@ There are two default structure types configured in Odoo: *Employee* and *Worker
    :alt: List of all currently configured structure types available to use.
 
 New structure type
-------------------
+~~~~~~~~~~~~~~~~~~
 
 To make a new structure type, click the :guilabel:`New` button and a structure type form appears.
 Enter the information in the fields. Most fields are pre-populated, but all the fields can be
 modified.
 
-- :guilabel:`Structure Type`: Enter the name for the new structure type, such as 'Employee' or
-  'Worker'.
+- :guilabel:`Structure Type`: Enter the name for the new structure type, such as `Employee` or
+  `Worker`.
 - :guilabel:`Country`: Select the country that the new structure type applies to from the drop-down
   menu.
 - :guilabel:`Wage Type`: Select what type of wage the new structure type will use, either
-  :guilabel:`Monthly Fixed Wage` or :guilabel:`Hourly Wage`. If the wage type is going to be used
-  for salaried employees who receive the same wage every pay period, select :guilabel:`Monthly Fixed
-  Wage`. If the wage type is going to be used for employees who receive wages based on how many
-  hours they worked during a pay period, select :guilabel:`Hourly Wage`.
+  :guilabel:`Fixed Wage` or :guilabel:`Hourly Wage`. If the wage type is going to be used for
+  salaried employees who receive the same wage every pay period, select :guilabel:`Fixed Wage`. If
+  the wage type is going to be used for employees who receive wages based on how many hours they
+  worked during a pay period, select :guilabel:`Hourly Wage`.
 - :guilabel:`Default Scheduled Pay`: Select the typical pay schedule for the new structure type from
   the drop-down menu. Options are :guilabel:`Monthly`, :guilabel:`Quarterly`,
   :guilabel:`Semi-annually`, :guilabel:`Annually`, :guilabel:`Weekly`, :guilabel:`Bi-weekly`,
-  :guilabel:`Bi-monthly`. This indicates how often this type of structure type is paid out.
+  :guilabel:`Bi-monthly`. This indicates how often this specific type of structure is paid out.
 - :guilabel:`Default Working Hours`: Select the default working hours for the new structure type
   from the drop-down menu. All available working hours for the currently selected company appear in
   the drop-down menu. The default working hours that are pre-configured in Odoo is the
@@ -268,7 +419,7 @@ modified.
   will fall under from the drop-down menu. Options include :guilabel:`Attendance`,
   :guilabel:`Overtime Hours`, :guilabel:`Generic Time Off`, :guilabel:`Compensatory Time Off`,
   :guilabel:`Home Working`, :guilabel:`Unpaid`, :guilabel:`Sick Time Off`, :guilabel:`Paid Time
-  Off`, and :guilabel:`Out Of Contract`.
+  Off`, :guilabel:`Out Of Contract`, :guilabel:`Extra Hours`, and :guilabel:`Long Term Time Off`.
 
 .. image:: payroll/new-structure.png
    :align: center
@@ -283,7 +434,7 @@ To make new default working hours, type the name for the new working hours in th
 Working Hours` field on the new structure type form. Click :guilabel:`Create and edit`. A default
 working hours form will pop up. The default working hours form has two sections, a general
 information section and a tab listing out all the individual working hours by day and time. When the
-form is filled out, click :guilabel:`Save & Close`.
+form is completed, click :guilabel:`Save & Close`.
 
 - :guilabel:`Name`: Type in the name for the new default working hours. This should be descriptive
   and clear to understand, such as `Standard 20 Hours/Week`.
@@ -413,36 +564,53 @@ field.
 
 .. image:: payroll/input-type-new.png
    :align: center
-   :alt: Create a new Input Type.
+   :alt: A new Input Type form filled in..
+
+Salary attachment types
+-----------------------
+
+Salary attachments, also thought of as wage garnishments, is money taken out of a payslip for
+something specific. Much like all other aspects of payroll configurations, the types of salary
+attachments need to be defined.
+
+To view the currently configured salary attachments, navigate to :menuselection:`Payroll -->
+Configuration --> Salary --> Salary Attachment Types`. The default salary attachment types are
+:guilabel:`Attachment of Salary`, :guilabel:`Assignment of Salary`, and :guilabel:`Child Support`.
+
+To make a new type of salary attachment, click the :guilabel:`New` button. Enter the
+:guilabel:`Description` and the :guilabel:`Code` (used in the salary rules to compute payslips).
+
+.. image:: payroll/new-attachment.png
+   :align: center
+   :alt: A new salary attachment form filled in.
 
 Salary package configurator
 ===========================
 
 The various options under the :guilabel:`Salary Package Configurator` section of the
 :menuselection:`Payroll --> Configuration --> Salary Package Configurator` menu all affect an
-employee's potential salary. These sections (:guilabel:`Advantages`, :guilabel:`Personal Info`,
-:guilabel:`Resume`, and :guilabel:`Offers`) specify what benefits can be offered to an employee in
-their salary package.
+employee's potential salary. These sections (:guilabel:`Benefits`, :guilabel:`Personal Info`,
+and :guilabel:`Resume`) specify what benefits can be offered to an employee in their salary package.
 
 Depending on what information an employee enters (such as deductions, dependents, etc.), their
 salary is adjusted accordingly. When an applicant applies for a job on the company website, the
 sections under :guilabel:`Salary Package Configurator` directly affect what the applicant sees, and
 what is populated as the applicant enters information.
 
-Advantages
-----------
+Benefits
+--------
 
-When offering potential employees a position, there can be certain *advantages* or benefits set in
-Odoo in addition to the salary to make an offer more appealing (such as extra time off, the use of a
-company car, reimbursement for a phone or internet, etc.).
+When offering potential employees a position, there can be certain benefits set in Odoo in addition
+to the salary to make an offer more appealing (such as extra time off, the use of a company car,
+reimbursement for a phone or internet, etc.).
 
-To see the advantages, go to :menuselection:`Payroll --> Configuration --> Salary Package
-Configurator --> Advantages`. Advantages are grouped by :guilabel:`Structure type`, and the
-advantage listed for a particular structure type is only available for that specific structure.
+To view the benefits, go to :menuselection:`Payroll --> Configuration --> Salary Package
+Configurator: Benefits`. Benefits are grouped by :guilabel:`Structure type`, and the benefit listed
+for a particular structure type is only available for that specific structure.
 
-.. image:: payroll/advantages.png
+.. image:: payroll/benefits.png
    :align: center
-   :alt: A list view of all the advantages or benefits that is available for each structure type.
+   :alt: A list view of all the benefits available for each structure type.
 
 .. example::
    A company has two structure types, one labeled :guilabel:`Employee`, and anther labeled
@@ -455,22 +623,20 @@ advantage listed for a particular structure type is only available for that spec
    have meal vouchers. The opposite is true for someone hired under the :guilabel:`Intern` structure
    type. They would have meal vouchers available to them, not the use of a company car.
 
-To make a new advantage, click the :guilabel:`New` button, and enter the information in the fields.
-The required fields for an advantage are:
+To make a new benefit, click the :guilabel:`New` button, and enter the information in the fields.
+The required fields for a benefit are:
 
-- :guilabel:`Name`: Enter the name for the advantage.
-- :guilabel:`Advantage Field`: Select from the drop-down menu what field in the payslip this
-  advantage appears under.
-- :guilabel:`Advantage Type`: Select from the drop-down menu what type of advantage the benefit is.
-  Select from :guilabel:`Monthly Benefit in Kind`, :guilabel:`Monthly Advantages in Net`,
-  :guilabel:`Monthly Advantages in Cash`, or :guilabel:`Yearly Advantages in Cash`.
+- :guilabel:`Name`: Enter the name for the benefit.
+- :guilabel:`Related Type`: Select from the drop-down menu what type of benefit it is. Select from
+  :guilabel:`Monthly Benefit in Kind`, :guilabel:`Monthly Benefits in Net`, :guilabel:`Monthly
+  Benefits in Cash`, :guilabel:`Yearly Benefits in Cash`, or :guilabel:`Non Financial Benefits`.
 - :guilabel:`Salary Structure Type`: Select from the drop-down menu which salary structure type this
-  advantage applies to.
-- :guilabel:`Display Type`: Select from the drop-down menu how this advantage is displayed.
+  benefit applies to.
+- :guilabel:`Display Type`: Select from the drop-down menu how this benefit is displayed.
 
-.. image:: payroll/new-advantage.png
+.. image:: payroll/new-benefit.png
    :align: center
-   :alt: List of advantages employee's can have.
+   :alt: A new benefit form filled out for an internet subscription.
 
 Personal info
 -------------
@@ -489,9 +655,9 @@ the employee's card.
 .. note::
    An employee card can be thought of as an employee personnel file.
 
-The *Personal Information* section lists all of the fields that are available to enter on the
-employee's card. To access this section, go to :menuselection:`Payroll --> Configuration --> Salary
-Package Configurator  --> Personal Info`.
+The *Personal Info* section lists all of the fields that are available to enter on the employee's
+card. To access this section, go to :menuselection:`Payroll --> Configuration --> Salary Package
+Configurator: Personal Info`.
 
 .. image:: payroll/personal-info.png
    :align: center
@@ -524,34 +690,35 @@ Resume
 
 .. note::
    Currently, the :guilabel:`Resume` feature found inside the :menuselection:`Payroll app -->
-   Configuration --> Salary Package Configurator --> Resume` menu is still in development and only
+   Configuration --> Salary Package Configurator: Resume` menu is still in development and only
    serves a specific use case for Belgian markets. The documentation will be updated when this
    section has matured to more markets.
 
-Offers
-------
+Jobs
+====
 
-When a candidate is offered a position, there are several items that need to be tracked in order
-for a business to stay organized, such as where in the offer process the candidate is, how long the
-offer is valid for, as well as all the offer details. These details are all stored in each *offers*
-record.
+Since the *Payroll* application is responsible for paying employees for specific job positions, the
+complete list of job positions can be found in both the *Payroll* and *Recruitment* applications.
 
-To view all offers, go to :menuselection:`Payroll --> Configuration --> Salary Package Configurator
---> Offers`. All offers that have been sent to either potential candidates or current employees
-appears in this list. The status, offer start date and expiration date, amount of the contract, and
-more, can all be found in this list. Offers sent via the :guilabel:`Recruitment` application appear
-here, but there is an option to create a new offer from the :guilabel:`Payroll` application as well.
+.. _payroll/job-positions:
 
-.. image:: payroll/offers.png
+Job positions
+-------------
+
+The job positions listed in the *Payroll* application are identical to the job positions listed in
+the *Recruitment* application. If a new job position is added in the *Recruitment* application, it
+is also visible in the *Payroll* application, and vice versa. To view the job positions, navigate to
+:menuselection:`Payroll app --> Configuration --> Jobs: Job Positions`. A list of all the job
+positions appear, along with the corresponding department.
+
+.. image:: payroll/job-positions.png
    :align: center
-   :alt: A list of all offers given to a current employee or potential candidate along with the
-         status of the offer.
+   :alt: A list of all the job positions and corresponding departments.
 
-To create a new offer, click the :guilabel:`New` button. The two required fields are the
-:guilabel:`Contract Template`, and the :guilabel:`Company`. Select the :guilabel:`Contract Template`
-and :guilabel:`Company` from the drop-down menus. Fill in any other details for the offer, such as
-the :guilabel:`Job Title`, :guilabel:`Department`, the :guilabel:`Contract Start Date` and the
-:guilabel:`Offer Validity Date`.
+To create a new job description, click the :guilabel:`New` button and a job form appears. Enter the
+information on the form for the new position. The information is identical as to the information
+entered when creaitng a new job poisiotn in the *Recruitment* application. Refer to the
+:doc:`../hr/recruitment/new_job` document for more details on how to fill out this form.
 
 .. toctree::
    :titlesonly:
