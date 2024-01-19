@@ -1,0 +1,130 @@
+repo_name: murayajoe/documentation
+report_id: 920f6411c597e98677a3afbb473618e9
+version: 0.1
+repo_type: Public
+timestamp: '2024-01-19T12:43:49+00:00'
+requested_by: ksc-odoo
+provider: github
+branch: '17.0'
+detected_tools_count: 10
+tools:
+- name: CSS 3
+  description: The latest evolution of the Cascading Style Sheets language
+  website_url: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/6727/css.png
+  detection_source_url: https://github.com/murayajoe/documentation
+  detection_source: Repo Metadata
+- name: JavaScript
+  description: Lightweight, interpreted, object-oriented language with first-class
+    functions
+  website_url: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source_url: https://github.com/murayajoe/documentation
+  detection_source: Repo Metadata
+- name: Python
+  description: A clear and powerful object-oriented programming language, comparable
+    to Perl, Ruby, Scheme, or Java.
+  website_url: https://www.python.org
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/993/pUBY5pVj.png
+  detection_source_url: https://github.com/murayajoe/documentation
+  detection_source: Repo Metadata
+- name: SQL
+  description: It is a domain-specific language used in programming
+  website_url: https://en.wikipedia.org/wiki/SQL
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/2271/default_068d33483bba6b81ee13fbd4dc7aab9780896a54.png
+  detection_source_url: https://github.com/murayajoe/documentation/blob/17.0/content/applications/general/export_import_data/database_import_test.sql
+  detection_source: content/applications/general/export_import_data/database_import_test.sql
+  last_updated_by: Cedric Snauwaert
+  last_updated_on: 2016-04-04 15:21:48.000000000 Z
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/murayajoe/documentation
+  detection_source: Repo Metadata
+- name: PyPI
+  description: A repository of software for the Python programming language
+  website_url: https://pypi.org/
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Hosted Package Repository
+  image_url: https://img.stackshare.io/service/12572/-RIWgodF_400x400.jpg
+  detection_source_url: https://github.com/murayajoe/documentation/blob/17.0/tests/requirements.txt
+  detection_source: tests/requirements.txt
+  last_updated_by: Victor Feyens
+  last_updated_on: 2022-11-22 17:17:30.000000000 Z
+- name: Pillow
+  description: Python Imaging Library
+  website_url: https://python-pillow.github.io/
+  open_source: true
+  hosted_saas: false
+  category: Assets and Media
+  sub_category: Image Processing and Management
+  image_url: https://img.stackshare.io/service/2375/default_1f67b0ca7416a9f52beb655f90b5602d5ef74b75.jpg
+  detection_source_url: https://github.com/murayajoe/documentation/blob/17.0/tests/requirements.txt
+  detection_source: tests/requirements.txt
+  last_updated_by: Victor Feyens
+  last_updated_on: 2023-04-17 13:46:16.000000000 Z
+- name: docutils
+  description: Docutils -- Python Documentation Utilities
+  package_url: https://pypi.org/project/docutils
+  version: 0.16.0
+  license: Unlicense,Python-2.0,BSD-2-Clause,CNRI-Python-GPL-Compatible
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19874/default_7ed3c4ccf2a3218ae3655165b980bd4a90a445dc.png
+  detection_source_url: https://github.com/murayajoe/documentation/blob/17.0/requirements.txt
+  detection_source: requirements.txt
+  last_updated_by: Antoine Vandevenne (anv)
+  last_updated_on: 2022-06-09 08:56:01.000000000 Z
+- name: libsass
+  description: 'Sass for Python: A straightforward binding of libsass for Python'
+  package_url: https://pypi.org/project/libsass
+  version: 0.20.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20335/default_1a060bd30ca72545354e1c3d92e9b224f6c0e5e2.png
+  detection_source_url: https://github.com/murayajoe/documentation/blob/17.0/requirements.txt
+  detection_source: requirements.txt
+  last_updated_by: Christophe Monniez
+  last_updated_on: 2023-05-10 11:18:12.000000000 Z
+- name: mock
+  description: Rolling backport of unittest.mock for all Pythons
+  package_url: https://pypi.org/project/mock
+  version: 5.0.1
+  license: BSD-2-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19876/default_8902c10687fbcd6273bdbe119fff40fa1180763f.png
+  detection_source_url: https://github.com/murayajoe/documentation/blob/17.0/tests/requirements.txt
+  detection_source: tests/requirements.txt
+  last_updated_by: Victor Feyens
+  last_updated_on: 2022-11-22 17:17:30.000000000 Z
